@@ -21,17 +21,17 @@
 ## Tecnologias
 Backend: Python + FastAPI.
 Base de dados: PostgreSQL.
-Vector Database: ChromaDB
-Pipeline RAG: LangChain
+Vector Database: ChromaDB.
+Pipeline RAG: LangChain.
 Tabela conversations: dados das conversas.
 Tabela messages: mensagens trocadas.
 
 ### Responsabilidades
 
-- **FastAPI:**  Receber e responder às mensagens
-- **LangChain:** Coordenar o pipeline RAG
-- **ChromaDB:**  Armazenar e recuperar embeddings
-- **PostgreSQL:** Guardar conversas e mensagens
+- **FastAPI:**  Receber e responder às mensagens.
+- **LangChain:** Coordenar o pipeline RAG.
+- **ChromaDB:**  Armazenar e recuperar embeddings.
+- **PostgreSQL:** Guardar conversas e mensagens.
 
 ## Arquitectura do chatbot
 
@@ -201,3 +201,7 @@ A ordem será:
 6. Desenvolver o sistema RAG.
 7. Integrar os modelos de IA.
 8. Implementar o encaminhamento para os fundadores.
+
+
+uvicorn app.main:app --reload -> Executar o projecto
+
