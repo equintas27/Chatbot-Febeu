@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "febeu-chatbot"
+version = "0.1.0"
+description = "Chatbot institucional da FEBEU baseado em Retrieval-Augmented Generation (RAG)"
+authors = [
+    {name = "FEBEU"}
+]
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = []
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = ["E203"]
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "chroma_db"
+]
