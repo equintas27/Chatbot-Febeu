@@ -18,13 +18,7 @@ Os três fundadores conheceram-se durante o ensino médio, período em que const
 
 Posteriormente, ingressaram juntos na 42 Luanda, uma experiência que contribuiu para aprofundar os seus conhecimentos técnicos, desenvolver competências de resolução de problemas e fortalecer a sua capacidade de trabalhar em equipa.
 
-### 2.1. A Primeira Ideia de Negócio
-
-Antes da criação da FEBEU, os fundadores tiveram uma primeira ideia de negócio denominada X-business, que consistia na criação de um espaço dedicado a jogos de matraquilhos.
-
-Entretanto, após analisarem as suas competências, formação e interesses profissionais, perceberam que poderiam unir os seus conhecimentos na área tecnológica para desenvolver um projeto empresarial mais alinhado com as suas capacidades e ambições.
-
-### 2.2. O Surgimento da FEBEU
+### 2.1. O Surgimento da FEBEU
 
 A decisão de criar uma empresa tecnológica surgiu também de uma vontade de ir além das experiências académicas tradicionais. Os fundadores pretendiam ultrapassar o contexto dos projetos académicos e transformar os conhecimentos adquiridos em soluções com impacto real.
 
@@ -36,7 +30,7 @@ Depois de uma procura persistente por um nome que representasse a nova empresa, 
 
 Dessa combinação surgiu o nome FEBEU.
 
-### 2.3. O Propósito
+### 2.2. O Propósito
 
 A FEBEU representa a união de três amigos que partilham uma visão e uma ambição comum: utilizar a tecnologia como instrumento de transformação e contribuir para o desenvolvimento de Angola.
 
