@@ -1,6 +1,26 @@
 services:
   postgresql:
-    image: postgresql:17
+    image: postgres:17
     container_name: postgresql
+    restart: on-failure
+    env_file:
+      - .env
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets:
+      - postgres_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+    - febeu_network
+
+networks:
+  febeu_network:
+    driver: bridge
+volumes:
+  postgres_data:
+secrets:
+  postgres_password:
+    file: ./secrets/postgres_password.txt
 
 
