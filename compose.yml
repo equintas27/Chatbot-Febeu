@@ -1,0 +1,6 @@
+services:
+  postgresql:
+    image: postgresql:17
+    container_name: postgresql
+
+
