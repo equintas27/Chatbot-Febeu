@@ -8,3 +8,5 @@ def read_document():
         raise RuntimeError("ERROR! ao ler o arquivo")
     return content
 
+def count_tokens(section : str):
+    
