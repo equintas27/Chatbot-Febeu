@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from app.database.database import get_connection()
+from fastapi import APIRouter
+from app.database.database import get_connection
 
 router = APIRouter()
 
@@ -10,7 +10,7 @@ def connect():
     try:
         cursor = connection.cursor()
         cursor.execute("Select current_database()")
-        db_name = cursor.fecthone()[0]
+        db_name = cursor.fetchone()[0]
         cursor.close()
         
         return {
