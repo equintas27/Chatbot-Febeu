@@ -7,3 +7,4 @@ def read_document():
     except OSError as error:
         raise RuntimeError("ERROR! ao ler o arquivo")
     return content
+
