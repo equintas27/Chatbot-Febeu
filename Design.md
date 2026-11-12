@@ -213,6 +213,10 @@ SELECT current_database() — consulta o nome da base de dados actual.
 fetchone() — obtém o resultado da consulta.
 connection.close() — fecha a conexão, mesmo que ocorra algum erro.
 
+São unidades de texto utilizadas pelos modelos de linguagem. Um token pode representar uma palavra inteira, parte de uma palavra ou até pontuação.
+
+Não são exactamente equivalentes a palavras.
+
 sudo docker compose exec fastapi python -c "from app.database.database import get_connection; conn = get_connection(); cur = conn.cursor(); cur.execute('SELECT current_database()'); print(cur.fetchone()); cur.close(); conn.close()" 
 
 

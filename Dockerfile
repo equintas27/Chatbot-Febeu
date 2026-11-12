@@ -6,6 +6,7 @@ COPY pyproject.toml .
 RUN pip install --no-cache-dir .
 
 COPY febeu-chatbot/ .
+COPY knowledge_base/ /app/knowledge_base/
 
 EXPOSE 8000
 
