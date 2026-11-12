@@ -13,6 +13,21 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
     - febeu_network
+  
+  fastapi:
+    image: fastapi:1.0
+    container_name: fastapi
+    restart: on-failure
+    build : 
+      context: .
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    secrets:
+      - postgres_password
+    networks:
+      - febeu_network
 
 networks:
   febeu_network:
@@ -22,5 +37,3 @@ volumes:
 secrets:
   postgres_password:
     file: ./secrets/postgres_password.txt
-
-

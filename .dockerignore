@@ -1,0 +1,9 @@
+.git/
+.venv/
+__pycache__/
+*.pyc
+.env
+secrets/
+chroma_db/
+.pytest_cache/
+*.egg-info/
