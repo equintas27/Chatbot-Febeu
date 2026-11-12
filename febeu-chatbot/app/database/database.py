@@ -4,7 +4,7 @@ import psycopg
 
 
 def get_connection():
-    password_file=Path(__file__).resolve().parents[3] / "secrets/postgres_password.txt"
+    password_file=Path(os.getenv("POSTGRES_PASSWORD_FILE"))
     try:
         password_string = password_file.read_text().strip()
     except OSError as error:
@@ -12,7 +12,7 @@ def get_connection():
     try:
         connection = psycopg.connect(
             host="postgresql",
-            database=os.getenv("POSTGRES_DB"),
+            dbname=os.getenv("POSTGRES_DB"),
             user=os.getenv("POSTGRES_USER"),
             password=password_string,
             port=5432
