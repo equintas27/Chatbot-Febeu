@@ -203,6 +203,8 @@ A ordem será:
 8. Implementar o encaminhamento para os fundadores.
 
 
+
+
 uvicorn app.main:app --reload -> Executar o projecto
 
 APIRouter() — cria um conjunto de rotas que poderá ser integrado no FastAPI. Define endpoints que pertencem a um grupo.
@@ -212,3 +214,8 @@ fetchone() — obtém o resultado da consulta.
 connection.close() — fecha a conexão, mesmo que ocorra algum erro.
 
 sudo docker compose exec fastapi python -c "from app.database.database import get_connection; conn = get_connection(); cur = conn.cursor(); cur.execute('SELECT current_database()'); print(cur.fetchone()); cur.close(); conn.close()" 
+
+
+Referências
+
+(HTTPExceptions)[https://fastapi.tiangolo.com/pt/reference/exceptions/#fastapi.HTTPException.status_code]

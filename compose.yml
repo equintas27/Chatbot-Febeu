@@ -30,12 +30,24 @@ services:
       - postgres_password
     networks:
       - febeu_network
+  
+  chromadb:
+    image: chromadb/chroma:1.5.9
+    container_name: chromadb
+    restart: on-failure
+    volumes: 
+    - chroma_data:/chroma/chroma
+    networks:
+      - febeu_network
 
 networks:
   febeu_network:
     driver: bridge
+
 volumes:
   postgres_data:
+  chroma_data:
+
 secrets:
   postgres_password:
     file: ./secrets/postgres_password.txt
