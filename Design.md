@@ -223,3 +223,4 @@ sudo docker compose exec fastapi python -c "from app.database.database import ge
 Referências
 
 (HTTPExceptions)[https://fastapi.tiangolo.com/pt/reference/exceptions/#fastapi.HTTPException.status_code]
+(IBM)[https://www.ibm.com/br-pt/think/architectures/rag-cookbook/ui]
