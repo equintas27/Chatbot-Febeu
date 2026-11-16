@@ -18,6 +18,7 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
     if chunk_size <= 0 or overlap < 0 or overlap >= chunk_size:
         raise ValueError("Parâmetros de chunking inválidos.")
     
+    id_chunk = 0
     for section in sections:
         
         original_text = section["content"]
@@ -32,19 +33,16 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
         mapping_token = result["offset_mapping"]
         start = 0
         size_token = len(token_content)
+        
 
         while start < size_token:
 
             end = min (start + chunk_size, size_token)
 
             chunk_token = token_content[start:end]
-            print("Start:", start)
-            print("End:", end)
-            print("Quantidade de tokens:", len(chunk_token))
-            print()
 
             start_char = mapping_token[start][0]
-            while not original_text[start_char].isspace():
+            while start_char > 0 and not original_text[start_char].isspace():
                 start_char -= 1
             start_char += 1
             end_char = mapping_token[end - 1][1]
@@ -52,15 +50,19 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
                 end_char += 1
             chunk_text = original_text[start_char:end_char]
             chunk = {
-                "title": section["title"],
-                "text": chunk_text,
-                "length_token": len(chunk_token)
+                "id" : id_chunk,
+                "text": f"{section['title']}\n\n{chunk_text}",
+                "metadata":
+                {
+                    "title": section["title"],
+                    "source": "FEBEU_ENTERPRISE.md",
+                    "length_token": len(chunk_token) 
+                }
             }
 
-            if end >= size_token:
-                break 
             start += chunk_size - overlap
             chunks.append(chunk)
+            id_chunk += 1
 
     return chunks
 
