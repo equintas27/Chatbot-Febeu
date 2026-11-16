@@ -37,21 +37,28 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
 
             end = min (start + chunk_size, size_token)
 
-            if end >= size_token:
-                break 
-            
             chunk_token = token_content[start:end]
+            print("Start:", start)
+            print("End:", end)
+            print("Quantidade de tokens:", len(chunk_token))
+            print()
 
-            start_char = mapping_token[start]
-
-            end_char = mapping_token[end - 1]
-
+            start_char = mapping_token[start][0]
+            while not original_text[start_char].isspace():
+                start_char -= 1
+            start_char += 1
+            end_char = mapping_token[end - 1][1]
+            while end_char < len(original_text) and not original_text[end_char].isspace():
+                end_char += 1
             chunk_text = original_text[start_char:end_char]
             chunk = {
                 "title": section["title"],
                 "text": chunk_text,
                 "length_token": len(chunk_token)
             }
+
+            if end >= size_token:
+                break 
             start += chunk_size - overlap
             chunks.append(chunk)
 
