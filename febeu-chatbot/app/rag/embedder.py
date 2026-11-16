@@ -10,6 +10,6 @@ class EmbeddingModel:
 
     def embedding_query(self, query: str) -> list[float]:
         embedding = self.model.encode(query, normalize_embedding=True)
-        ret
+        return embedding.tolist()
 
 
