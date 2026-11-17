@@ -50,7 +50,7 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
                 end_char += 1
             chunk_text = original_text[start_char:end_char]
             chunk = {
-                "id" : id_chunk,
+                "id" : str(id_chunk),
                 "text": f"{section['title']}\n\n{chunk_text}",
                 "metadata":
                 {

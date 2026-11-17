@@ -8,10 +8,16 @@ def generate_embeddings() :
     content = markdown_parsing()
     chunks = create_chunk(content, 100, 30)
    
-    embeddings = model.embedding_documents(chunks["content"])
-    chunks["embeddings"] = embeddings
+    for chunk in chunks:
+        embeddings = model.embedding_documents(chunk["text"])
+        chunk["embeddings"] = embeddings
     return chunks
 
 
+def generate_query_embeddings(query) -> list[float]: 
+
+    model = EmbeddingModel()
+    query_embedding = model.embedding_query(query)
+    return query_embedding
 
 
