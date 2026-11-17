@@ -3,6 +3,7 @@ FROM python:3.14-slim
 WORKDIR /app
 
 COPY pyproject.toml .
+RUN pip install --no-cache-dir torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
 RUN pip install --no-cache-dir .
 
 COPY febeu-chatbot/ .
