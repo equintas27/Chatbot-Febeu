@@ -15,10 +15,13 @@ def ask_question(chat_request: ChatRequest):
     
     query = chat_request.question
 
+    start_generator = time.perf_counter()
     generator = FEBEUGenerator()
+    print(f"Generator initialization: {time.perf_counter() - start_generator:.2f}s")
 
     result = retriever_knowledge(query, 5)
-
+    print (result)
+    print (result)
     start_g = time.perf_counter()
     response = generator.generate_response(query, result["documents"][0])
     end_g = time.perf_counter()
@@ -27,7 +30,8 @@ def ask_question(chat_request: ChatRequest):
     duration = end - start
     return {
         "question": query,
-        "answer": response
+        "answer": response,
+        "duration": duration
     }
 
 

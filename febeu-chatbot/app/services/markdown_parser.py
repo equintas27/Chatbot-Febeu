@@ -13,10 +13,16 @@ def markdown_parsing():
     sections = []
     current_title = None
     current_content = []
+    current_parent = []
     for line in lines:
-        if line.startswith("## ") and not line.startswith("###"):
+        if line.startswith("## ") and not line.startswith("### "):
             save_sections(sections, current_title, current_content)
             current_title = line
+            current_parent = line
+            current_content = []
+        elif line.startswith("### "):
+            save_sections(sections, current_title, current_content)
+            current_title = f"{current_parent} > {line}"
             current_content = []
         else:
             current_content.append(line)

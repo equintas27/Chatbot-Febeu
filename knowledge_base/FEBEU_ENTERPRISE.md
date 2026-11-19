@@ -145,18 +145,18 @@ Responsável pelas áreas de:
 - Desenvolvimento de Chatbots;
 - Desenvolvimento de Inteligência Artificial.
 
-### 12.2. Leonel Félix
+### 12.2. Benvindo Alberto
+
+Responsável pelas áreas de:
+- Desenvolvimento Backend;
+- IT Help Desk.
+
+### 12.3. Leonel Félix
 
 Responsável pelas áreas de:
 - Cibersegurança;
 - Desenvolvimento Frontend;
 - Desenvolvimento Mobile.
-
-### 12.3. Benvindo Alberto
-
-Responsável pelas áreas de:
-- Desenvolvimento Backend;
-- IT Help Desk.
 
 A distribuição de responsabilidades poderá evoluir de acordo com o crescimento da empresa e as necessidades dos projetos.
 
