@@ -2,9 +2,10 @@ from app.rag.embedder import EmbeddingModel
 from app.services.markdown_parser import markdown_parsing
 from app.services.chunking import create_chunk
 
+model = EmbeddingModel()
+
 def generate_embeddings() :
 
-    model = EmbeddingModel()
     content = markdown_parsing()
     chunks = create_chunk(content, 100, 30)
    
@@ -16,7 +17,6 @@ def generate_embeddings() :
 
 def generate_query_embeddings(query) -> list[float]: 
 
-    model = EmbeddingModel()
     query_embedding = model.embedding_query(query)
     return query_embedding
 

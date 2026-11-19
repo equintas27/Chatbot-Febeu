@@ -20,5 +20,7 @@ def markdown_parsing():
             current_content = []
         else:
             current_content.append(line)
+    
     save_sections(sections, current_title, current_content)
+    
     return sections
