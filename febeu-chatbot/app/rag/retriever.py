@@ -2,7 +2,7 @@ from app.database.chromaDb import get_knowledge_collections
 from app.rag.gen_embeddings import generate_query_embeddings
 import time
 
-def retriever_knowledge(question: query, n_results: 5):
+def retriever_knowledge(question: query, n_results: int):
 
     collection = get_knowledge_collections()
     

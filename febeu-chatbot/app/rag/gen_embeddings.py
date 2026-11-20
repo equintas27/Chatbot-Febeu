@@ -7,7 +7,7 @@ model = EmbeddingModel()
 def generate_embeddings() :
 
     content = markdown_parsing()
-    chunks = create_chunk(content, 100, 30)
+    chunks = create_chunk(content, 150, 45)
    
     for chunk in chunks:
         embeddings = model.embedding_documents(chunk["text"])
