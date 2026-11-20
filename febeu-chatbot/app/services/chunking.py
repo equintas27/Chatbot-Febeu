@@ -1,5 +1,6 @@
 from pathlib import Path
 from app.services.tokenizer import TextTokenizer
+from app.services.aux_chunking import split_content, group_content
 
 def read_document():
     document = Path("/app/knowledge_base/FEBEU_ENTERPRISE.md")
@@ -8,22 +9,6 @@ def read_document():
     except OSError as error:
         raise RuntimeError("ERROR! ao ler o arquivo")
     return content
-
-def split_content(original_text: str):
-    
-    splitted_content = []
-    paragragh = []
-    
-    lines = original_text.splitlines()
-
-    for line in lines:
-        if line.strip().startswith("- "):
-            splitted_content.append(line)
-        elif line.strip():
-            splitted_content.append(line)
-        else :
-            paragragh.append(line)
-    return paragragh
 
 def create_chunk(sections: list, chunk_size: int, overlap: int):
 
