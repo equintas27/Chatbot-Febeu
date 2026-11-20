@@ -9,6 +9,22 @@ def read_document():
         raise RuntimeError("ERROR! ao ler o arquivo")
     return content
 
+def split_content(original_text: str):
+    
+    splitted_content = []
+    paragragh = []
+    
+    lines = original_text.splitlines()
+
+    for line in lines:
+        if line.strip().startswith("- "):
+            splitted_content.append(line)
+        elif line.strip():
+            splitted_content.append(line)
+        else :
+            paragragh.append(line)
+    return paragragh
+
 def create_chunk(sections: list, chunk_size: int, overlap: int):
 
     chunks = []
@@ -23,6 +39,9 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
         
         original_text = section["content"]
 
+        all_lines = split_content(original_text)
+        print (all_lines)
+
         result = text_tokenizer.Tokenizer(
         original_text, 
         add_special_tokens=False, 
@@ -34,13 +53,12 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
         start = 0
         size_token = len(token_content)
         
-
         while start < size_token:
 
-            end = min (start + chunk_size, size_token)
+            end = min(start + chunk_size, size_token)
 
             chunk_token = token_content[start:end]
-
+            #print (len(chunk_token))
             start_char = mapping_token[start][0]
             while start_char > 0 and not original_text[start_char].isspace():
                 start_char -= 1
@@ -59,7 +77,6 @@ def create_chunk(sections: list, chunk_size: int, overlap: int):
                     "length_token": len(chunk_token) 
                 }
             }
-
             start += chunk_size - overlap
             chunks.append(chunk)
             id_chunk += 1

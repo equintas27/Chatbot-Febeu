@@ -18,7 +18,7 @@ def retriever_knowledge(question: query, n_results: int):
     )
     end_chromaDb = time.perf_counter()
 
-    print (f"Embeddings: {end_emb - start_emb:.2f}s")
-    print (f"ChromaDB: {end_chromaDb - start_chromaDb:.2f}s")
+    #print (f"Embeddings: {end_emb - start_emb:.2f}s")
+    #print (f"ChromaDB: {end_chromaDb - start_chromaDb:.2f}s")
     
     return results

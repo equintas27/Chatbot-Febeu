@@ -17,15 +17,15 @@ def ask_question(chat_request: ChatRequest):
 
     start_generator = time.perf_counter()
     generator = FEBEUGenerator()
-    print(f"Generator initialization: {time.perf_counter() - start_generator:.2f}s")
+    #print(f"Generator initialization: {time.perf_counter() - start_generator:.2f}s")
 
     result = retriever_knowledge(query, 10)
-    print (result)
+    #print (result)
 
     start_g = time.perf_counter()
     response = generator.generate_response(query, result["documents"][0])
     end_g = time.perf_counter()
-    print (f"Duration Gemini: {end_g - start_g}")
+    #print (f"Duration Gemini: {end_g - start_g}")
     end = time.perf_counter()
     duration = end - start
     return {
