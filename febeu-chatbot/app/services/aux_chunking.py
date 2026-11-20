@@ -1,3 +1,5 @@
+from app.services.tokenizer import TextTokenizer
+
 def split_content(original_text: str):
     
     splitted_content = []
@@ -26,7 +28,7 @@ def split_content(original_text: str):
 
     return splitted_content
 
-def group_content(units: list[str], chunk_size: int, text_tokenizer):
+def group_content(units: list[str], chunk_size: int, text_tokenizer: TextTokenizer):
     
     chunk = []
 
@@ -35,4 +37,25 @@ def group_content(units: list[str], chunk_size: int, text_tokenizer):
     current_tokens = 0
 
     for unit in units:
-        
+        result = text_tokenizer.Tokenizer(
+            unit,
+            add_special_tokens=False
+        )
+
+        unit_tokens = len(result["input_ids"])
+        if current_tokens + unit_tokens <= chunk_size:
+            current_chunk.append(unit)
+            current_tokens += unit_tokens
+        else:
+            aux_chunk = "\n".join(current_chunk)
+            chunk.append(aux_chunk)
+            current_chunk.clear()
+            current_tokens = 0
+            current_chunk.append(unit)
+            current_tokens += unit_tokens
+    
+    if current_chunk:
+        aux_chunk = "\n".join(current_chunk)
+        chunk.append(aux_chunk)
+    return chunk
+

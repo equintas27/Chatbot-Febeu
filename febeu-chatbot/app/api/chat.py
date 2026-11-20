@@ -20,7 +20,7 @@ def ask_question(chat_request: ChatRequest):
     #print(f"Generator initialization: {time.perf_counter() - start_generator:.2f}s")
 
     result = retriever_knowledge(query, 10)
-    #print (result)
+    print (result)
 
     start_g = time.perf_counter()
     response = generator.generate_response(query, result["documents"][0])
